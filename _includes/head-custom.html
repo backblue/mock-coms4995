@@ -1,6 +1,18 @@
 <style>
-  html.dark { background: white; filter: invert(1) hue-rotate(180deg); }
-  html.dark img { filter: invert(1) hue-rotate(180deg); }
+  html.dark { color-scheme: dark; background: #000000; }
+  html.dark body, html.dark .markdown-body { background: #000000; color: #ffffff; }
+  html.dark .markdown-body a { color: #79c0ff; }
+  html.dark .markdown-body table tr, html.dark .markdown-body pre,
+  html.dark .markdown-body .highlight { background: #000000; color: #ffffff; }
+  html.dark .highlight :is(.k, .kd, .kn, .kp, .kr, .kt, .o, .ow) { color: #ff7b72; }
+  html.dark .highlight :is(.s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss) { color: #a5d6ff; }
+  html.dark .highlight :is(.m, .mb, .mf, .mh, .mi, .mo, .il, .kc, .no) { color: #79c0ff; }
+  html.dark .highlight :is(.nf, .fm, .nc, .nn) { color: #d2a8ff; }
+  html.dark .highlight :is(.c, .c1, .cm, .cs, .cp, .cpf) { color: #a0aab6; }
+  html.dark .highlight :is(.n, .na, .nb, .ni, .nl, .nt, .nv, .nx, .p, .w) { color: #ffffff; }
+  html.dark .markdown-body code { background: #222222; }
+  html.dark .markdown-body pre code { background: transparent; }
+  html.dark .markdown-body img { background: #ffffff; }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -11,6 +23,9 @@
       document.documentElement.classList.toggle('dark', checkbox.checked);
     };
     label.append(checkbox, ' Dark mode');
-    document.querySelector('.markdown-body').prepend(label);
+    const content = document.querySelector('.markdown-body');
+    const heading = content.querySelector('h1');
+    if (heading) heading.after(label);
+    else content.prepend(label);
   });
 </script>
