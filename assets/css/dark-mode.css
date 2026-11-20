@@ -1,0 +1,47 @@
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+.theme-toggle label, .theme-toggle input {
+  cursor: pointer;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  background-color: #0d1117;
+}
+html[data-theme="dark"] body,
+html[data-theme="dark"] .markdown-body {
+  color: #e6edf3;
+  background-color: #0d1117;
+}
+html[data-theme="dark"] .markdown-body a { color: #79c0ff; }
+html[data-theme="dark"] .markdown-body h1,
+html[data-theme="dark"] .markdown-body h2,
+html[data-theme="dark"] .markdown-body table th,
+html[data-theme="dark"] .markdown-body table td,
+html[data-theme="dark"] .markdown-body .border-top {
+  border-color: #30363d !important;
+}
+html[data-theme="dark"] .markdown-body table tr {
+  background-color: #0d1117;
+  border-color: #30363d;
+}
+html[data-theme="dark"] .markdown-body table tr:nth-child(2n),
+html[data-theme="dark"] .markdown-body pre,
+html[data-theme="dark"] .markdown-body .highlight pre,
+html[data-theme="dark"] .markdown-body .highlight {
+  color: #e6edf3;
+  background-color: #161b22;
+}
+html[data-theme="dark"] .markdown-body code,
+html[data-theme="dark"] .markdown-body tt { background-color: #6e768166; }
+html[data-theme="dark"] .markdown-body pre code { background-color: transparent; }
+/* Theme token colors are designed for a light background. Inherit readable text. */
+html[data-theme="dark"] .markdown-body .highlight span { color: inherit; }
+html[data-theme="dark"] .markdown-body blockquote {
+  color: #9da7b3;
+  border-color: #30363d;
+}
+html[data-theme="dark"] .markdown-body hr { background-color: #30363d; }
+/* Preserve diagrams whose text and strokes were drawn for white backgrounds. */
+html[data-theme="dark"] .markdown-body img { background-color: #fff; }
