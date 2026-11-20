@@ -1,5 +1,6 @@
 <style>
   html { color-scheme: light; }
+  .markdown-body svg.inline-svg { max-width: 100%; height: auto; }
   .theme-toggle { display: block; text-align: left; margin: 0.5rem 0 1rem; }
   html.dark { color-scheme: dark; background: #121212; }
   html.dark body, html.dark .markdown-body { background: #121212; color: #ffffff; }
@@ -40,6 +41,24 @@
       const heading = content.querySelector(':scope > h1');
       if (heading) heading.after(label);
       else content.prepend(label);
+
+      content.querySelectorAll('img').forEach(async function (image) {
+        const url = new URL(image.src, document.baseURI);
+        if (url.origin !== location.origin || !url.pathname.toLowerCase().endsWith('.svg')) return;
+        try {
+          const response = await fetch(url);
+          const parsed = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+          const svg = parsed.documentElement;
+          if (parsed.querySelector('parsererror') || svg.localName !== 'svg') throw new Error('Invalid SVG');
+          svg.style.colorScheme = 'inherit';
+          svg.classList.add('inline-svg');
+          svg.setAttribute('role', 'img');
+          svg.setAttribute('aria-label', image.alt || 'Diagram');
+          image.replaceWith(document.importNode(svg, true));
+        } catch (error) {
+          // Keep the original image if loading or parsing fails.
+        }
+      });
     });
   }());
 </script>
