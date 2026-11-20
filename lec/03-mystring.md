@@ -6,7 +6,7 @@ Writing our own string class will give us an opportunity to learn and practice t
 
 Another reason to study our own string class is that it will give us a good mental model on how `std::string` class works under the hood. Even though `std::string` is highly optimized and does a lot of things that our naive implementation will not do, the way MyString class manages the underlying heap-allocated string still provides a good mental model for us to understand how real string works and how any class should properly manage its acquired resources.
 
-## Source code organization
+# Source code organization
 
 First, let’s make sure we understand how MyString class source code is organized. We will study the following source files:
 
