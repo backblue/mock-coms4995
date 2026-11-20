@@ -1,4 +1,5 @@
 <style>
+  .theme-toggle { display: block; text-align: right; margin: 0.5rem 0 1rem; }
   html.dark { color-scheme: dark; background: #000000; }
   html.dark body, html.dark .markdown-body { background: #000000; color: #ffffff; }
   html.dark .markdown-body a { color: #79c0ff; }
@@ -15,17 +16,26 @@
   html.dark .markdown-body img { background: #ffffff; }
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const label = document.createElement('label');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.onchange = function () {
-      document.documentElement.classList.toggle('dark', checkbox.checked);
-    };
-    label.append(checkbox, ' Dark mode');
-    const content = document.querySelector('.markdown-body');
-    const heading = content.querySelector('h1');
-    if (heading) heading.after(label);
-    else content.prepend(label);
-  });
+  (function () {
+    const root = document.documentElement;
+    const key = 'mock-coms4995-dark-mode';
+    try { root.classList.toggle('dark', localStorage.getItem(key) === 'true'); } catch (error) {}
+    document.addEventListener('DOMContentLoaded', function () {
+      const content = document.querySelector('.markdown-body');
+      if (!content) return;
+      const label = document.createElement('label');
+      label.className = 'theme-toggle';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = root.classList.contains('dark');
+      checkbox.onchange = function () {
+        root.classList.toggle('dark', checkbox.checked);
+        try { localStorage.setItem(key, String(checkbox.checked)); } catch (error) {}
+      };
+      label.append(checkbox, ' Dark mode');
+      const heading = content.querySelector(':scope > h1');
+      if (heading) heading.after(label);
+      else content.prepend(label);
+    });
+  }());
 </script>
