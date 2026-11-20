@@ -19,7 +19,7 @@
 ## Course Schedule
 
 | Lecture 2: R 1/1 |
-|------------------|
+| ---------------- |
 
 ### MyString class
 - Lecture: [03-mystring](https://www.google.com)
