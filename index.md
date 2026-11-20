@@ -18,8 +18,11 @@
 
 ## Course Schedule
 
-| Lecture 2: R 1/1 |
-| ---------------- |
+<table>
+  <tr>
+    <td>Lecture 2: R 1/1</td>
+  </tr>
+</table>
 
 ### MyString class
 - Lecture: [03-mystring](https://www.google.com)
