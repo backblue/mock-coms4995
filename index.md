@@ -1,5 +1,3 @@
-# [COMS W4995 C++ Deep Dive for C Programmers](https://www.google.com)
-
 ## Fall 2026
 
 - COMS 4995-011: Tuesday & Thursday 5:40-6:55pm, 411 Hamilton Hall ~~428 Pupin Laboratories~~
