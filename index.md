@@ -25,7 +25,7 @@
 </table>
 
 ### MyString class
-- Lecture: [03-mystring](https://www.google.com)
+- Lecture: [03-mystring](lec/03-mystring.md)
   - Motivation
   - Source code review
     - `mystring.h` vs `mystring.cpp`
