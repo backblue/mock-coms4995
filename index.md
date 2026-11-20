@@ -20,6 +20,7 @@
 
 | Lecture 2: R 9/10 |
 | --- |
+
 ### MyString class
 - Lecture: [03-mystring](https://www.google.com)
   - Motivation
